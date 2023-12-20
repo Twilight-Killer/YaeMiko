@@ -79,11 +79,11 @@ async def ai_handler_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
                 [
                     [
                         InlineKeyboardButton(
-                            "𝙈𝙊𝙍𝙀 𝙄𝙈𝘼𝙂𝙀 𝙂𝙀𝙉 ➪", callback_data="more_ai_handler"
+                            "ᴍᴏʀᴇ ɪᴍᴀɢᴇ ɢᴇɴ ➪", callback_data="more_ai_handler"
                         ),
                     ],
                     [
-                        InlineKeyboardButton("» 𝙃𝙊𝙈𝙀 «", callback_data="Miko_back"),
+                        InlineKeyboardButton("» ʜᴏᴍᴇ «", callback_data="Miko_back"),
                     ],
                 ],
             ),
@@ -116,7 +116,7 @@ async def more_ai_handler_callback(update: Update, context: ContextTypes.DEFAULT
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("⇦ 𝘽𝘼𝘾𝙆", callback_data="ai_handler"),
+                        InlineKeyboardButton("⇦ ʙᴀᴄᴋ", callback_data="ai_handler"),
                     ],
                 ],
             ),
@@ -127,7 +127,7 @@ def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
     time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
+    time_suffix_list = ["s", "m", "h", "Hari"]
 
     while count < 4:
         count += 1
@@ -342,7 +342,7 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "➲ *HELP SECTION OF* *{}* :\n".format(HELPABLE[module].__mod_name__)
+                "➲ *BAGIAN BANTUAN* *{}* :\n".format(HELPABLE[module].__mod_name__)
                 + HELPABLE[module].__help__
             )
             await query.message.edit_text(
@@ -397,7 +397,7 @@ async def stats_back(update: Update, context: ContextTypes.DEFAULT_TYPE):
         mem = psutil.virtual_memory().percent
         disk = psutil.disk_usage("/").percent
         text = f"""
-𝙎𝙮𝙨𝙩𝙚𝙢 𝙨𝙩𝙖𝙩𝙨@𝙔𝙖𝙚𝙈𝙞𝙠𝙤_𝙍𝙤𝙭𝙗𝙤𝙩
+𝙎𝙮𝙨𝙩𝙚𝙢 𝙨𝙩𝙖𝙩𝙨@Kimochi_robot
 ➖➖➖➖➖➖
 UPTIME ➼ {uptime}
 CPU ➼ {cpu}%
@@ -418,9 +418,9 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await query.answer()
 
     if query.data == "git_source":
-        source_link = "https://github.com/Infamous-Hydra/YaeMiko"
+        source_link = "https://t.me/DarkiezZzz"
         message_text = (
-            f"*Here is the link for the public source repo*:\n\n{source_link}"
+            f"*Berikut ini tautan untuk repo*:\n\n{source_link}"
         )
 
         # Adding the inline button
@@ -436,8 +436,8 @@ async def gitsource_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 
 async def repo(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    source_link = "https://github.com/Infamous-Hydra/YaeMiko"
-    message_text = f"*Here is the link for the public source repo*:\n\n{source_link}"
+    source_link = "https://t.me/DarkiezZzz"
+    message_text = f"*Berikut ini tautan untuk repo*:\n\n{source_link}"
 
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
@@ -452,12 +452,12 @@ async def Miko_about_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
     if query.data == "Miko_":
         uptime = get_readable_time((time.time() - StartTime))
         message_text = (
-            f"➲ <b>Ai integration.</b>"
-            f"\n➲ <b>Advance management capability.</b>"
-            f"\n➲ <b>Anime bot functionality.</b>"
+            f"➲ <b>Ai integrasi.</b>"
+            f"\n➲ <b>Kemampuan manajemen tingkat lanjut.</b>"
+            f"\n➲ <b>Fungsionalitas bot anime.</b>"
             f"\n\n<b>USERS</b> » {sql.num_users()}"
             f"\n<b>CHATS</b> » {sql.num_chats()}"
-            f"\n\n<b>Click on the buttons below for getting help and info about</b> {BOT_NAME}."
+            f"\n\n<b>Klik tombol di bawah untuk mendapatkan bantuan dan informasi tentang</b> {BOT_NAME}."
         )
         await query.message.edit_text(
             text=message_text,
@@ -482,8 +482,8 @@ async def Miko_about_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         )
     elif query.data == "Miko_support":
         message_text = (
-            "*Our bot leverages SQL, MongoDB, Telegram, MTProto for secure and efficient operations. It resides on a high-speed server, integrates numerous APIs, ensuring quick and versatile responses to user queries.*"
-            f"\n\n*If you find any bug in {BOT_NAME} Please report it at the support chat.*"
+            "*Bot memanfaatkan SQL, MongoDB, Telegram, MTProto untuk operasi yang aman dan efisien. berada di server berkecepatan tinggi, mengintegrasikan banyak API, memastikan respons cepat dan serbaguna terhadap pertanyaan pengguna.*"
+            f"\n\n*Jika Anda menemukan bug di {BOT_NAME} Silakan laporkan di support chat.*"
         )
         await query.message.edit_text(
             text=message_text,
@@ -524,7 +524,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             await update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
+                f"Hubungi saya di PM untuk mendapatkan bantuan {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -540,12 +540,12 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
         await update.effective_message.reply_text(
-            "» Choose an option for getting help.",
+            "» Pilih opsi untuk mendapatkan bantuan.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="OPEN IN PM",
+                            text="Buka di Private",
                             url="https://t.me/{}?start=help".format(
                                 context.bot.username
                             ),
@@ -553,7 +553,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="OPEN HERE",
+                            text="Buka Disini",
                             callback_data="help_back",
                         )
                     ],
@@ -565,7 +565,7 @@ async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            "Here is the available help for the *{}* module:\n".format(
+            "Berikut adalah bantuan yang tersedia untuk *{}* module:\n".format(
                 HELPABLE[module].__mod_name__
             )
             + HELPABLE[module].__help__
@@ -591,14 +591,14 @@ async def send_settings(chat_id, user_id, user=False):
             )
             await dispatcher.bot.send_message(
                 user_id,
-                "These are your current settings:" + "\n\n" + settings,
+                "Ini adalah pengaturan Anda saat ini:" + "\n\n" + settings,
                 parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             await dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any user specific settings available :'(",
+                "Sepertinya tidak ada pengaturan khusus pengguna yang tersedia :'(",
                 parse_mode=ParseMode.MARKDOWN,
             )
     else:
@@ -606,7 +606,7 @@ async def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             await dispatcher.bot.send_message(
                 user_id,
-                text="Which module would you like to check {}'s settings for?".format(
+                text="Modul mana yang ingin Anda periksa untuk {} ?".format(
                     chat_name
                 ),
                 reply_markup=InlineKeyboardMarkup(
@@ -616,8 +616,8 @@ async def send_settings(chat_id, user_id, user=False):
         else:
             await dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Sepertinya tidak ada pengaturan obrolan yang tersedia :'(\nKirim ini "
+                "dalam obrolan grup tempat Anda menjadi admin untuk menemukan pengaturannya saat ini!",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -635,7 +635,7 @@ async def settings_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
-            text = "*{}* has the following settings for the *{}* module:\n\n".format(
+            text = "*{}* memiliki pengaturan berikut untuk *{}* :\n\n".format(
                 escape_markdown(chat.title), CHAT_SETTINGS[module].__mod_name__
             ) + CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             await query.message.reply_text(
@@ -658,8 +658,8 @@ async def settings_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             await query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Ada beberapa pengaturan {} - silakan pilih apa "
+                "kamu tertarik.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -672,8 +672,8 @@ async def settings_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             await query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Ada beberapa pengaturan {} - silakan pilih apa "
+                "kamu tertarik.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         next_page + 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -685,8 +685,8 @@ async def settings_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             await query.message.reply_text(
-                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(escape_markdown(chat.title)),
+                text="Ada beberapa pengaturan {} - silakan pilih apa "
+                "kamu tertarik.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
@@ -713,7 +713,7 @@ async def get_settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "Klik di sini untuk mendapatkan pengaturan obrolan ini."
             await msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
@@ -730,7 +730,7 @@ async def get_settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 ),
             )
         else:
-            text = "Click here to check your settings."
+            text = "Klik di sini untuk memeriksa pengaturan Anda."
 
     else:
         await send_settings(chat.id, user.id, True)
