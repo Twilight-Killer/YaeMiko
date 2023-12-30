@@ -35,10 +35,10 @@ humanize==4.9.0
 jikanpy==4.3.2
 
 # ==== L ====
-lxml==4.9.3
+lxml==4.9.4
 
 # ==== M ====
-markdown2==2.4.11
+markdown2==2.4.12
 motor==3.3.2
 
 # ==== N ====
@@ -61,7 +61,7 @@ pyrogram==2.0.106
 python-telegram-bot==20.7
 
 # ==== R ====
-regex==2023.10.3
+regex==2023.12.25
 requests==2.31.0
 
 # ==== S ====
